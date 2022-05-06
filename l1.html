@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <title>Pyscript by wk-18K</title>
+</head>
+
+<body class="grey darken-3">
+    <nav>
+        <div class="nav-wrapper grey darken-4">
+            <a href="index.html" class="brand-logo center">Pyscript by wk-18K</a>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col s2 card blue-text text-darken-2" >
+            <ul>
+                <li class="light-blue darken-4"><a href="l1.html">บทที่ 1</a></li>
+            </ul>
+        </div>
+
+        <div class="col s10">
+            <div class="card blue-grey darken-3">
+                <div class="card-content white-text">
+                    <span class="card-title">บทที่ 1</span>
+                    <p>- คลิกบรรทัดใน พื้นที่ทำงาน</p>
+                    <p>- กดที่เครื่องหมาย <span style="color: rgb(0, 51, 255);">▶</span> เพื่อให้โปรแกรมทำงาน</p>
+                    <p>หรือ กด shift + enter พร้อมกัน เพื่อให้โปรแกรมทำงาน</p>
+                </div>
+                <div class="card-content white-text">
+                    <span class="card-title">ตัวแปร</span>
+                    <p>ตัวแปร เป็นการใช้เก็บค่าในหน่วยความจำ ตัวแปรจะมีชื่อ (identifier) สำหรับใช้ในการอ้างถึงข้อมูลของมัน ในการเขียนโปรแกรม ค่าของตัวแปรสามารถที่จะกำหนดได้ใน run-time หรือเปลี่ยนแปลงอยู่ตลอดเวลาในขณะที่โปรแกรมทำงาน (executing) ตัวอย่างเช่น
+                    </p>
+                    <p align="center">
+                        <img class="materialboxed" src="https://media.discordapp.net/attachments/852168652815990796/972171247913938974/unknown.png?width=883&height=467" width="40%" alt="">
+                    </p>
+                    <py-repl id="repl-demo" std-out="output1" auto-generate="true">
+กล่อง = "กล่องเปล่า"
+# ต้องการเติมส้มลงไปในกล่อง 1 ลูก
+กล่อง = "ส้ม 1 ลูก"
+print(กล่อง)
+                    </py-repl>
+                    <p id="output1" style="font-size: 1.5rem !important;padding: 0 32px;"></p>
+                    <h5>ในทางปฎิบัติ</h5>
+                    <py-repl id="repl-demo" auto-generate="true">
+box = ""
+# ต้องการเติมส้มลงไปในกล่อง 1 ลูก
+orange = 1
+box = orange
+print(box)
+                    </py-repl>
+                    <p id="output2" std-out="output2" style="font-size: 1.5rem !important;padding: 0 32px;"></p>
+                <span class="card-title">การตั้งชื่อตัวแปร</span>
+                <p>- ขึ้นต้นด้วยภาษาอังกฤษ (A-Z) หรือจะเป็น (a-z) อาจจะตามด้วยตัวเลขก็ได้</p>
+                <py-repl id="repl-demo" std-out="output3" auto-generate="true" std-err="err-div">
+Name = "สมคิด"
+Nickname = "Kai"
+print(Name,Nickname)
+                </py-repl>
+                <p id="output3" style="font-size: 1.5rem !important;padding: 0 32px;"></p>
+                <p>- สามารถใช้ภาษาไทย แต่ไม่นิยม</p>
+                <py-repl id="repl-demo" std-out="output4" auto-generate="true" std-err="err-div">
+สมคิด = "Somkit"
+print(สมคิด)
+                </py-repl>
+                <p id="output4" style="font-size: 1.5rem !important;padding: 0 32px;"></p>
+                <p>- ต้องไม่มีสัญลักษณ์ จุด (.) หรือช่องว่าง ยกเว้น (_) หรือ Underscore</p>
+                <p style="color:tomato">แบบที่ผิด</p>
+                <py-repl id="repl-demo" std-out="o5-1" auto-generate="true" std-err="err-div">
+.re = "Somkit"
+                </py-repl>
+                <p id="o5-1" style="font-size: 1.5rem !important;padding: 0 32px;"></p>
+                <p style="color:green">แบบที่ถูก</p>
+                <py-repl id="repl-demo" std-out="o5-2" auto-generate="true" std-err="err-div">
+_re = "Somkit"
+print(_re)
+                                    </py-repl>
+                                    <p id="o5-2" style="font-size: 1.5rem !important;padding: 0 32px;"></p>
+                    
+                                    <p>- ภาษาอังกฤษพิมพ์ใหญ่กับเล็กมีความหมายต่างกัน</p>
+                                    <py-repl id="repl-demo" std-out="o6" auto-generate="true" std-err="err-div">
+A = 1
+a = 2
+print("A: ",A)
+print("a: ",a)
+                                    </py-repl>
+                                    <p id="o6" style="font-size: 1.5rem !important;padding: 0 32px;"></p>
+                                    <p>- ไม่ซ้ำกับคำสงวน เช่น 
+                                        False, None, True, __peg_parser__, and, as, assert, async, await, break, class, continue, def, del, elif, else, except, finally, for, from, global, if, import, in, is, lambda, nonlocal, not, or, pass, raise, return, try, while, with, yield
+                                        </p>
+                                        <p align="center">
+                                            <img class="materialboxed" src="https://media.discordapp.net/attachments/852168652815990796/972188298770526268/unknown.png" width="80%" alt="">
+                                        </p>
+                                        <br>
+            <span class="card-title">ชนิดของตัวแปร (Data Type)</span>
+            <h5>- ข้อมูลประเภท <b>ข้อความอักษร (string : str : สตริง)</b></h5>
+            <p>เรียกตัวแปรประเภท string มีเครื่องหมายสำคัญที่จะระบุความเป็นข้อความก็คือ</p>
+            <p><span style="color:red">"</span>_<span style="color:red">"</span> Double quote</p>
+            <p><span style="color:red">'</span>_<span style="color:red">'</span> Single quote</p>
+            <p>เช่น</p>
+            <py-repl id="repl-demo" std-out="o7" auto-generate="true" std-err="err-div">
+Message = "สวัสดีแบบดับเบิลโขด"
+print(Message)
+Message = 'สวัสดีแบบซิงเกิ้ลโขด'
+print(Message)
+            </py-repl>
+            <p id="o7" style="font-size: 1.5rem !important;padding: 0 32px;"></p>
+            
+            <h5>- ข้อมูลประเภท <b>ตัวเลข (Number)</b> แบ่งออกเป็น 3 ส่วนใหญ่ๆ คือ</h5>
+            <h6>* ข้อมูลประเภท <b>จำนวนเต็ม (Integer : int : อินทีเจอร์)</b></h6>
+            <p>คือข้อมูลที่เป็นตัวเลขที่ไม่มีจุดทศนิยม</p>
+            <py-repl id="repl-demo" std-out="o8" auto-generate="true" std-err="err-div">
+x = 50
+y = -50
+print(x)
+print(y)
+                            </py-repl>
+                            <p id="o8" style="font-size: 1.5rem !important;padding: 0 32px;"></p>
+            <h6>* ข้อมูลประเภท <b>ทศนิยม (Float : float : โฟลท)</b></h6>
+            <p>จำนวนจริงในที่นี้เป็นจำนวนที่อยู่ในรูปทศนิยมแบบจุดลอย (floating point) หรือมักเรียกว่า float</p>
+                        <py-repl id="repl-demo" std-out="o9" auto-generate="true" std-err="err-div">
+x = 50.0
+y = 0.26545
+print(x)
+print(y)
+                            </py-repl>
+                            <p id="o9" style="font-size: 1.5rem !important;padding: 0 32px;"></p>
+            <h6>- ข้อมูลประเภท <b>จำนวนเชิงซ้อน (Complex : complex : คอมเพ็ค)</b></h6>
+            <p>คือข้อมูลที่ประกอบด้วยส่วนจริงและส่วนจินตภาพ โดยส่วนจินตภาพจะเขียนโดยต่อท้ายด้วย j</p>
+                        <py-repl id="repl-demo" std-out="o10" auto-generate="true" std-err="err-div">
+x = 50 + 0.23j
+y = 10 + 0.23j
+print(x)
+print(y)
+                            </py-repl>
+                            <p id="o10" style="font-size: 1.5rem !important;padding: 0 32px;"></p>
+                            <p>ต่อให้ตัวเลขนำหน้า j เป็น 0 ซึ่งหมายถึงส่วนจินตภาพเป็น 0 แต่ถ้ามีการเขียน 0j อยู่ก็ยังถือเป็นจำนวนเชิงซ้อน จำนวนเชิงซ้อนเป็นอะไรที่เป็นนามธรรมเป็นอย่างมาก และมักใช้ในคณิตศาสตร์ระดับสูง</p>
+                            <br>
+            <h5>- ข้อมูลประเภท <b>บูล หรือ บูลีน (Boolean : bool : บูล)</b></h5>
+            <p>ข้อมูลประเภทบูลคือข้อมูลที่มีค่าเป็นเพียง ๒ แบบ คือจริงกับเท็จเท่านั้น ซึ่งเขียนแทนด้วย <span style="color:greenyellow">True</span> <span style="color:red">False</span></p>
+                                    <py-repl id="repl-demo" std-out="o11" auto-generate="true" std-err="err-div">
+x = True
+y = False
+a = 2
+b = 0
+print(x)
+print(y)
+print(a==b)
+                            </py-repl>
+                            <p id="o11" style="font-size: 1.5rem !important;padding: 0 32px;"></p>
+                            <p style="color: tomato;">* โดยให้ระวังว่าจำเป็นต้องขึ้นต้นด้วยตัวพิมพ์ใหญ่เท่านั้น</p>
+            <h5>- ข้อมูลประเภท <b>ลิสต์ (List : list : ลิสต์)</b></h5>
+            <p>คือข้อมูลที่รวมเข้าเป็นรายการเดียวโดยมี [ ] เครื่องหมายบัคเก็ตหรือวงเล็บก้ามปูเป็นตัวกำหนด เช่น box = ['ส้ม', 'ชะอม']</p>
+                                    <py-repl id="repl-demo" std-out="o12" auto-generate="true" std-err="err-div">
+box = ['ส้ม', 'ชะอม']
+print(box)
+box[1] = 'ชะอมมาก'
+print(box)                    
+                            </py-repl>
+                            <p id="o12" style="font-size: 1.5rem !important;padding: 0 32px;"></p>
+            <h5>- ข้อมูลประเภท <b>ทูเพิล (Tuple : tuple : ทูเพิล)</b></h5>
+            <p>คือข้อมูลที่รวมเข้าเป็นรายการคล้ายลิสต์แต่ไม่สามารถเปลี่ยนแปลงข้อมูลได้ โดยมี ( ) เครื่องหมาย พะเรนทิซิส หรือวงเล็บเป็นตัวกำหนด เช่น number = (50,50)</p>
+                                    <py-repl id="repl-demo" std-out="o13" auto-generate="true" std-err="err-div">
+try:
+    box = ('ส้ม', 'ชะอม')
+    print(box)
+    box[1] = 'ชะอมมาก'
+    print(box) 
+except TypeError:
+    print('ทูเพิล ไม่สามารถเปลี่ยนข้อมูลได้')
+                            </py-repl>
+                            <p id="o13" style="font-size: 1.5rem !important;padding: 0 32px;"></p>
+            <h5>- ข้อมูลประเภท <b>ดิกชันนารี (Dictionary : dict : ดิกชันนารี)</b></h5>
+            <p>คือข้อมูลที่รวมข้อมูลเข้าด้วยกันแต่แบ่งเป็น key(คีย์) value(แวลู่)หรือข้อมูล โดยใช้เครื่องหมาย { } เครื่องหมายบัคเก็ตหรือวงเล็บปีกกาเป็นตัวกำหนด เช่น dict = {1:"สมชาย",2:"สมสมัย"}</p>
+                                    <py-repl id="repl-demo" std-out="o14" auto-generate="true" std-err="err-div">
+dict = {
+        1:"สมชาย",
+        2:"สมสมัย",
+        3:"สมใจ"
+    }
+print(dict)
+print(dict[1])
+print(dict[2])
+print(dict[3])
+                            </py-repl>
+                            <p id="o14" style="font-size: 1.5rem !important;padding: 0 32px;"></p>
+                            <p>1 คือ key  ส่วน สมชาย คือ value</p>
+            <h5>- ข้อมูลประเภท <b>เซต (Set : set : เซต)</b></h5>
+            <p>คือข้อมูลที่รวมข้อมูลเข้าด้วยกันเหมือนลิสต์แต่ใช้ในทางคณิตศาตร์มากกว่า โดยใช้เครื่องหมาย { } เครื่องหมายบัคเก็ตหรือวงเล็บปีกกาเป็นตัวกำหนด เช่น S1 = {1,2,3,4,5,6,7} </p>
+                                    <py-repl id="repl-demo" std-out="o15" auto-generate="true" std-err="err-div">
+S1 = {1,3,4,5,6,7} 
+S2 = {2,3,4,5,6,7,8,8,8} 
+#สามารถร่วมทั้งสองเซต ด้วยกันด้วย ยูเนียน union()
+S3 = S1.union(S2)
+print(S3)
+                            </py-repl>
+                            <p id="o15" style="font-size: 1.5rem !important;padding: 0 32px;"></p>
+            </div>
+                <span class="card-title white-text" style="margin: 30px;">พื้นที่ทำงาน</span>
+                <py-repl auto-generate="false">
+                </py-repl>
+                <div>
+                <input class="btn-floating btn-large waves-effect waves-light red"type="button" style=" position: fixed;
+                right: 15px;
+                bottom: 15px;" value="ลบ"/>
+            </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.materialboxed');
+    var instances = M.Materialbox.init(elems);
+    instances.open();
+  });
+  $("input").click(function(){$("footer").remove();})
+
+
+    </script>
+    
+     <footer id="err-div" class="bg-red-700 text-white text-center border-t-4 border-green-500 fixed inset-x-0 bottom-0 p-4 hidden">
+     </footer>
+     
+</body>
+<style>
+    * {
+        font-family: 'Kanit', sans-serif;
+    }
+
+    body {
+        font-family: 'Kanit', sans-serif;
+    }
+    .ͼ15 .cm-activeLine {
+        font-family: 'Kanit', sans-serif;
+    }
+
+    .cm-line {
+        font-family: 'Kanit', sans-serif;
+        font-size: 1.5rem;
+        color: #424242 !important;
+    }
+
+    .ͼ2 .cm-activeLineGutter {
+        font-family: 'Kanit', sans-serif;
+    }
+
+    button.mr-2.block {
+        position: absolute;
+        top: -25px;
+    }
+
+    path {
+        color: rgb(0, 51, 255);
+    }
+
+    .text-sm {
+        padding: 5px;
+        font-size: 1.5rem;
+        color: rgb(173, 252, 210);
+        font-family: 'Kanit', sans-serif;
+    }
+
+
+    li {
+        padding: 9.5px;
+    }
+    ul {
+        padding: 10px;
+    }
+</style>
+
+</html>
